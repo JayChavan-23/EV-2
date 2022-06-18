@@ -15,6 +15,8 @@
   --white-color: #fff;
   --body-color: hsl(219, 4%, 4%);
   --container-color: hsl(219, 4%, 7%);
+  --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+  --border:.1rem solid rgba(0,0,0,.1);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -120,6 +122,12 @@ img {
 .shape__small{
   width: 300px;
   height: 300px;
+}
+
+.shape__smaller{
+  width: 180px;
+  height: 180px;
+  filter: blur(64px);
 }
 
 /*=============== HEADER & NAV ===============*/
@@ -416,6 +424,16 @@ img {
 
 
 /*=============== BUTTON ===============*/
+
+.button{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  padding: 1rem 2rem;
+  border-radius: .25rem;
+  font-size: var(--normal-font-size);
+  transition: .3s;
+}
 .button__loader{
   border: none;
   outline: none;
@@ -502,10 +520,146 @@ img {
 
 
 /*=============== POPULAR ===============*/
+.popular__container{
+  padding-top: 1rem;
+}
+.popular__card{
+  position: relative;
+  width: 238px;
+  background-color: var(--container-color);
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 3.5rem;
+  overflow: hidden;
+}
 
+.popular__card .shape__smaller{
+  position: absolute;
+  top: -2.5rem;
+  left: -2.5rem;
+}
+.popular__title,
+.popular__subtitle,
+.popular__img{
+  position: relative;
+}
+
+.popular__title{
+  font-size: var(--h2-font-size);
+  margin-bottom: .25rem;
+}
+
+.popular__subtitle{
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.popular__img{
+  width: 200px;
+  margin: .75rem 0 1rem 1rem;
+  transition: .3s;
+}
+
+.popular__data{
+  display: grid;
+  grid-template-columns: repeat(2,max-content);
+  gap: .5rem 1rem;
+  margin-bottom: 2rem;
+}
+.popular__data-group{
+  display: inline-flex;
+  align-items: center;
+  column-gap: .5rem;
+  font-size: var(--smaller-font-size);
+  color: var(--white-color);
+}
+
+.popular__data i{
+  font-size: 1rem;
+}
+
+.popular__price{
+  font-size: var(--h3-font-size);
+}
+.popular__button{
+  border: none;
+  outline: none;
+  padding: 0.75rem 1rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 1rem 0 1rem 0 ;
+  cursor: pointer;
+}
+.popular__button i{
+  font-size: 1.25rem;
+}
+
+.popular__card:hover .popular__img{
+  transform: translateY(-.50rem);
+}
 
 /* Swiper class */
+.swiper-pagination-bullet{
+  background:var(--text-color);
+}
+.swiper-pagination-bullet-active{
+  background-color:var(--first-color);
+}
 
+
+/*=============== services ===============*/
+.services .box-container{
+  padding: 2rem 9%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
+  gap: 3rem;
+
+}
+
+.services .box-container .box{
+  text-align: center;
+  background: rgba(156, 156, 156, 0.103);
+  padding: 2rem;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow);
+  border:var(--border);
+  cursor: pointer;
+}
+
+.services .box-container .box i{
+  height: 6rem;
+  width: 6rem;
+  padding: .8rem;
+  line-height: 6rem;
+  font-size: 2.5rem;
+  color: black;
+  background: 	hsl(178, 100%, 32%);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.services__description{
+  font-size: var(--small-font-size);
+  padding-top: .5rem;
+}
+
+.services .box-container .box p{
+  font-size: var(--smaller-font-size);
+  
+}
+.services .box-container .box h3{
+  font-size:var(--h3-font-size);
+}
+
+.services .box-container .box:hover{
+  background: 	hsl(178, 100%, 32%);
+  transition: .5s;
+}
+.services .box-container .box:hover i{
+  background:var(--white-color);
+  transition: .5s;
+}
 
 
 /*=============== FEATURED ===============*/
@@ -534,9 +688,12 @@ img {
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
+@media screen and (max-width: 320px) {
 
-
+}
 /* For medium devices */
+@media screen and (max-width: 320px) {
 
+}
 
 /* For large devices */
