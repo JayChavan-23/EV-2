@@ -613,18 +613,19 @@ img {
 .services .box-container{
   padding: 2rem 9%;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
+
   gap: 3rem;
+  grid-template-columns: repeat(1,1fr);
 
 }
 
 .services .box-container .box{
+
   text-align: center;
   background: rgba(156, 156, 156, 0.103);
   padding: 2rem;
   border-radius: .5rem;
-  box-shadow: var(--box-shadow);
-  border:var(--border);
+
   cursor: pointer;
 }
 
@@ -635,7 +636,7 @@ img {
   line-height: 6rem;
   font-size: 2.5rem;
   color: black;
-  background: 	hsl(178, 100%, 32%);
+  background: #4178dc;
   border-radius: 50%;
   margin-bottom: 1rem;
 }
@@ -653,7 +654,7 @@ img {
 }
 
 .services .box-container .box:hover{
-  background: 	hsl(178, 100%, 32%);
+  background: #4178dc;
   transition: .5s;
 }
 .services .box-container .box:hover i{
@@ -662,12 +663,156 @@ img {
 }
 
 
+/*=============== Charger ===============*/
+.charger{
+  position: relative;
+}
+
+
+.charger__bg{
+  position:absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit:cover ;
+  object-position: center;
+  opacity: 20%;
+  border-radius: 1rem;
+}
+.charger__data,
+.charger_img{
+  position: relative;
+}
+
+.charger__data{
+  text-align: center;
+}
+.charger__title{
+  margin-bottom: 2rem;
+}
+.charger__description{
+  margin-bottom: 2rem;
+}
+.button__charger{
+  position: relative;
+  cursor: pointer;
+}
+
+
 /*=============== FEATURED ===============*/
+.featured__container{
+  padding-top: 1rem;
+}
 
+.featured__filters{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1rem;
+  margin-bottom: 3.5rem;
+}
 
+.featured__item{
+  width: 44px;
+  height: 44px;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: .75rem;
+  background-color: var(--container-color);
+  color: var(--white-color);
+  font-size: var(--normal-font-size);
+  cursor: pointer;
+  transition: .3s;
+}
+
+.featured__item img{
+  width: 1.5rem;
+}
+
+.featured__item span,
+.featured__item img{
+  opacity: .3;
+  transition: .3s;
+}
+.featured__item:hover{
+  background-color: var(--first-color);
+}
+
+.featured__item:hover span,
+.featured__item:hover img{
+  opacity: 1;
+}
+
+.featured__content{
+  grid-template-columns: 268px;
+  row-gap: 2.5rem;
+  justify-content: center;
+}
+.featured__card{
+  position: relative;
+  background-color: var(--container-color);
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.featured__card .shape__smaller{
+  position:absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.featured__title,
+.featured__subtitle,
+.featured__img{
+  position: relative;
+}
+.featured__title{
+  font-size: var(--h2-font-size);
+  margin-bottom: .25rem;
+}
+.featured__subtitle{
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.featured__img{
+  width: 200px;
+  margin: 1.5rem 0;
+  transition: .3s;
+}
+.featured__price{
+  font-size: var(--h3-font-size);
+}
+
+.featured__button{
+  border: none;
+  outline: none;
+  padding: .75rem 1rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 1rem 0 1rem 0;
+  cursor: pointer;
+}
+
+.featured__button i{
+  font-size: 1.25rem;
+}
+
+.featured__card:hover .featured__img{
+  transform: translateX(-.25rem);
+}
 /* Active link featured */
-
-
+.active-featured{
+  background-color: var(--first-color);
+}
+.active-featured span,
+.active-featured img{
+  opacity: 1;
+}
 /*=============== OFFER ===============*/
 
 
@@ -688,12 +833,46 @@ img {
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
+  .container{
+    margin-left:1rem;
+    margin-right: 1rem;
+}
 
+.services .box-container{
+    grid-template-columns: max-content;
+    justify-content: center;
+}
 }
 /* For medium devices */
-@media screen and (max-width: 320px) {
+@media screen and (min-width:568px) {
+  .services .box-container{
+      grid-template-columns: repeat(2,1fr);
 
+  }
+}
+/* For large devices */
+
+@media screen and (min-width:768px) {
+  .container{
+      margin-left: 2rem;
+      margin-right: 2rem;
+  }
+  .services .box-container{
+    grid-template-columns: repeat(3,218px);
+    justify-content: center;
+}
 }
 
-/* For large devices */
+@media screen and (min-width:1024px) 
+{
+  .services .box-container{
+        grid-template-columns: repeat(3,350px);
+        justify-content: center;
+
+    }
+    .container{
+      margin-left:1rem;
+      margin-right: 1rem;
+  }
+}
