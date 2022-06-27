@@ -813,6 +813,43 @@ img {
 .active-featured img{
   opacity: 1;
 }
+/*=============== appointment ===============*/
+
+.appointment{
+  text-align: center;
+}
+
+.appointment__bg{
+  background-color: hsl(219, 4%, 7%);
+  padding-top: 3rem;
+}
+
+.appointment__title{
+  font-size: 1.25rem;
+  margin-bottom: .75rem;
+}
+
+.appointment__description{
+  margin-bottom: 1.5rem;
+  font-size: .85rem;
+}
+
+.appointment__title,
+.appointment__description{
+  color:  hsl(219, 8%, 95%);
+}
+.appointment__img{
+  width: 232px;
+  justify-self: center;
+  border-radius: .5rem;
+  padding-bottom: 1rem;
+}
+
+.appointment__icon{
+  justify-content: center;
+  align-items: center;
+  
+}
 /*=============== OFFER ===============*/
 
 
