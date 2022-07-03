@@ -29,7 +29,7 @@
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="#home" class="nav__link">Home</a>
+                            <a href="#home" class="nav__link active-link">Home</a>
                         </li>
                         <li class="nav__item">
                             <a href="#about" class="nav__link">Aboutus</a>
@@ -41,10 +41,10 @@
                             <a href="#services" class="nav__link">Services</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#testimonals" class="nav__link">Testimonals</a>
+                            <a href="#contact" class="nav__link">ContactUs</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#contact" class="nav__link">ContactUs</a>
+                            <a href="#" class="nav__link">Admin</a>
                         </li>
                     </ul>
                     <div class="nav__close" id="nav-close">
@@ -137,7 +137,7 @@
 
             <!--==================== ABOUT ====================-->
             <section class="about section" id="about">
-                <div class="about__container container gid">
+                <div class="about__container container grid">
                     <div class="about__group">
                         <img src="/assets/img/about.jpg" alt="" class="about__img">
                         <div class="about__card">
@@ -156,17 +156,9 @@
                         <p class="about__description">
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
                             Magnam iusto voluptas tenetur unde fuga aut sint adipisci 
-                            consequuntur amet, quod sunt, perferendis ab? Cum eligendi 
-                            voluptate neque quisquam dolorum quo.
+                            consequuntur amet, quod sunt, perferendis
                         </p>
-                        <button href="#" class="button__loader">
-                            <span class="button__text">
-                                Contact us?
-                            </span>
-                        </button>
-                       
-                            
-                        
+                        <a href="#" class="button">Contact us?</a>
                     </div>
                 </div>
             </section>
@@ -447,7 +439,7 @@
                         <p class="charger__description">
                             Know more about the Electric vehicles charges its uses etc by clicking on the link below
                         </p>
-                        <a href="" class="button button__charger">Know More..</a>
+                        <a href="charger.html" target="_blank" class="button button__charger">Know More..</a>
                     </div>
                 </div>
                    
@@ -760,17 +752,135 @@
                 </div>
             </section>
             <!--==================== testimonals ====================-->
-
+<section class="testimonal section">
+    <div class="testimonal__heading"><b>Our</b> Testimonals</div>
+    <div class="testimonal__wrapper">
+        <div class="testimonal__container">
+            <div class="testimonal__profile">
+                <div class="testimonal__imgBox">
+                    <img src="/assets/img/pic-1.png" alt="">
+                </div>
+                <h2>Shawn Miller</h2>
+            </div>
+            <p> <span> <i class="ri-double-quotes-l quote__left"></i></span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, 
+                nulla amet excepturi soluta quasi libero quam sed ipsum aliquam hic, 
+                accusantium minus quidem eum voluptatum? Debitis, consequuntur fugit 
+                laboriosam ex accusamus inventore, consequatur fuga praesentium deleniti 
+                odio minima commodi illo? asfcg asdbw shcdss <span><i class="ri-double-quotes-r quote__right"></i></span> </p>
+        </div>
+        <div class="testimonal__container">
+            <div class="testimonal__profile">
+                <div class="testimonal__imgBox">
+                    <img src="/assets/img/pic-2.png" alt="">
+                </div>
+                <h2>Angela Hersey</h2>
+            </div>
+            <p> <span> <i class="ri-double-quotes-l quote__left"></i></span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, 
+                nulla amet excepturi soluta quasi libero quam sed ipsum aliquam hic, 
+                accusantium minus quidem eum voluptatum? Debitis, consequuntur fugit 
+                laboriosam ex accusamus inventore, consequatur fuga praesentium deleniti 
+                odio minima commodi illo? asfcg asdbw shcdss <span><i class="ri-double-quotes-r quote__right"></i></span> </p>
+        </div>
+        <div class="testimonal__container">
+            <div class="testimonal__profile">
+                <div class="testimonal__imgBox">
+                    <img src="/assets/img/pic-3.png" alt="">
+                </div>
+                <h2>Aiken Paul</h2>
+            </div>
+            <p> <span> <i class="ri-double-quotes-l quote__left"></i></span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, 
+                nulla amet excepturi soluta quasi libero quam sed ipsum aliquam hic, 
+                accusantium minus quidem eum voluptatum? Debitis, consequuntur fugit 
+                laboriosam ex accusamus inventore, consequatur fuga praesentium deleniti 
+                odio minima commodi illo? asfcg asdbw shcdss <span><i class="ri-double-quotes-r quote__right"></i></span> </p>
+        </div>
+    </div>
+</section>
+        <!--==================== Contact us ====================-->
+        <section class="contact section" id="contact">
+            <h2 class="section__title">Have a question?</h2>
+            <div class="contact__container">
+            <div class="row">
+                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.452271096561!2d72.95613891536772!3d19.175438653821196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8e5321ecbfb%3A0xf7d295a999c47b89!2sMulund%20College%20of%20Commerce!5e0!3m2!1sen!2sin!4v1656475520062!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <form action="">
+                    <h3>Fill The Form</h3>
+                    <input type="text" placeholder="your name" class="box">
+                    <input type="email" placeholder="your email" class="box">
+                    <textarea placeholder="your message" class="box" cols="30" rows="10"></textarea>
+                    <input type="submit" value="send message" class="button ">
+                </form>
+            </div>
+        </div>
+        </section>
         </main>
 
         <!--==================== FOOTER ====================-->
         <footer class="footer section">
-            
+            <div class="shape shape__big"></div>
+            <div class="shape shape__small"></div>
+
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">
+                        <i class="ri-steering-line"></i>EV-2
+                    </a>
+                    <p class="footer__description">
+                        We offer the best electric bikes of <br>
+                        the most recognized brands in <br>
+                        India.
+                    </p>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__title">
+                        Company
+                    </h3>
+                    <ul class="footer__links">
+                        <li>
+                            <a href="#" class="footer__link">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Bikes</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Testimonals</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__title">
+                        Information
+                    </h3>
+                    <ul class="footer__links">
+                        <li>
+                            <a href="#" class="footer__link">Locate Store</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Ask Question</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Services</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__content">
+                    <h3 class="footer__title">
+                        Admin?
+                    </h3>
+                    <ul class="footer__links">
+                        <li>
+                            <a href="#" class="footer__link">Click here</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
         </footer>
 
 
         <!--========== SCROLL UP ==========-->
-
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line"></i>
+        </a>
 
         <!--=============== SCROLL REVEAL ===============-->
         <script src=""></script>
