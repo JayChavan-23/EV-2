@@ -270,8 +270,20 @@ img {
 }
 
 .home__img{
-  height: 295px;
+  height: 350px;
   justify-self: center;
+}
+.home__img{
+  animation: floaty 1.8s infinite alternate;
+}
+/* Animate ghost*/
+@keyframes floaty {
+  0%{
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(15px);
+  }
 }
 
 .home__bike{
@@ -355,6 +367,7 @@ img {
     box-shadow: 0 0 36px hsl(178, 100%, 32%) ;
   }
 }
+
 
 
 /*=============== FEATURES ===============*/
