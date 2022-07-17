@@ -34,6 +34,59 @@ if(isset($_POST['save_popularbike'])){
     }
 }
 
+if(isset($_POST['popular_update_btn']))
+{
+    $edit_id = $_POST['edit_id'];
+    $edit_popular_brand = $_POST['edit_popular_brand'];
+    $edit_popular_model = $_POST['edit_popular_model'];
+    $edit_popular_img = $_FILES["popular_img"]['name'];
+    $edit_popular_topspeed = $_POST['edit_popular_topspeed'];
+    $edit_popular_charge = $_POST['edit_popular_charge'];
+    $edit_popular_range = $_POST['edit_popular_range'];
+    $edit_popular_price = $_POST['edit_popular_price'];
+    $edit_popular_link = $_POST['edit_popular_link'];
+
+    $popular_query = "SELECT * FROM popular_bikes WHERE id='$edit_id' ";
+    $popular_query_run = mysqli_query($connection,$popular_query);
+    foreach($popular_query_run as $popular_row)
+    {
+        if($edit_popular_img == NULL){
+            //update with existing image
+            $image_data = $popular_row['img'];
+        }
+        else{
+            //Update with new imageand delete the old image
+            if($img_path = "upload/".$popular_row['img']){
+                unlink($img_path);
+                $image_data = $edit_popular_img;
+            }
+            
+        }
+    }
+
+    $query = "UPDATE popular_bikes SET brand='$edit_popular_brand',model='$edit_popular_model',img='$image_data',topspeed='$edit_popular_topspeed',charge='$edit_popular_charge',bikerange='$edit_popular_range',price='$edit_popular_price',link='$edit_popular_link' WHERE id='$edit_id'";
+    $query_run = mysqli_query($connection,$query);
+
+    if($query_run)
+        {
+            if($edit_popular_img == NULL){
+                $_SESSION['status'] = "Popular Bike Updated with existing image";
+                header('Location:popular.php');
+            }
+            else{
+                move_uploaded_file($_FILES["popular_img"]["tmp_name"],"upload/".$_FILES["popular_img"]["name"]);
+                $_SESSION['status'] = "Popular Bike Updated";
+                header('Location:popular.php');
+            }
+            
+        }
+        else{
+            $_SESSION['status'] = "Popular Bike Details Not Updated";
+            header('Location:popular.php');
+        }
+}
+
+
 
 if(isset($_POST['registerbtn']))
 {

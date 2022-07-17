@@ -82,9 +82,21 @@
                 }
         ?>
             <div class="table-responsive">
+                <?php
+                    $query = "SELECT * FROM popular_bikes";
+                    $query_run=mysqli_query($connection, $query);
+
+                    if(mysqli_num_rows($query_run) > 0)
+                    {
+                        
+                        ?>
+
+
+                        
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Brand</th>
                             <th>Model</th>
                             <th>Image</th>
@@ -98,9 +110,41 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            while($row = mysqli_fetch_assoc($query_run))
+                            {
+                        ?>
+                            <tr>
+                                <td><?php echo $row['id'] ?></td>
+                                <td><?php echo $row['brand'] ?></td>
+                                <td><?php echo $row['model'] ?></td>
+                                <td><?php echo '<img src="upload/'.$row['img'].'" width="100px;" height="100px;" alt="Bike Image">'?></td>
+                                <td><?php echo $row['topspeed'] ?></td>
+                                <td><?php echo $row['charge'] ?></td>
+                                <td><?php echo $row['bikerange'] ?></td>
+                                <td><?php echo $row['price'] ?></td>
+                                <td><?php echo $row['link'] ?></td>
+                                <td> 
+                                    <form action="popular_edit.php" method="POST">
+                                            <input type="hidden" name="edit_id" value="<?php echo $row['id'] ?>">
+                                            <button type="submit" name="edit_data_btn" class="btn btn-success">Edit</button>
+                                    </form>
+                                </td>
+                                <td> <a href="#" class="btn btn-danger">Delete</a></td>
+                            </tr>
+                        <?php
 
+                            }
+                        ?>
+                        
                     </tbody>
                 </table>
+                <?php
+                    }
+                    else{
+                        echo "No Record Found";
+                    }
+                ?>
 
             </div>
         </div>
