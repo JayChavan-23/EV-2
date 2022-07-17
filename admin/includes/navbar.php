@@ -48,7 +48,7 @@
             </div>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="popular.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Popular Bikes</span></a>
             </li>

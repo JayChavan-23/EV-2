@@ -1,6 +1,39 @@
 <?php
 include('security.php');
-$connection = mysqli_connect("localhost","root","","ebikes");
+
+if(isset($_POST['save_popularbike'])){
+    $brand = $_POST['popular_brand'];
+    $model = $_POST['popular_model'];
+    $img = $_FILES["popular_img"]['name'];
+    $topspeed = $_POST['popular_topspeed'];
+    $charge = $_POST['popular_charge'];
+    $range = $_POST['popular_range'];
+    $price = $_POST['popular_price'];
+    $link = $_POST['popular_link'];
+
+    if(file_exists("upload/" . $_FILES["popular_img"]["name"])){
+        $store = $_FILES["popular_img"]["name"];
+        $_SESSION['status']= "Image already exists '.$store.'";
+        header('Location:popular.php');
+    }
+    else{
+
+        $query = "INSERT INTO popular_bikes (`brand`,`model`,`img`,`topspeed`,`charge`,`bikerange`,`price`,`link`) VALUES ('$brand','$model','$img','$topspeed','$charge','$range','$price','$link')";
+        $query_run = mysqli_query($connection,$query);
+
+        if($query_run)
+        {
+            move_uploaded_file($_FILES["popular_img"]["tmp_name"],"upload/".$_FILES["popular_img"]["name"]);
+            $_SESSION['status'] = "Popular Bike Added";
+            header('Location:popular.php');
+        }
+        else{
+            $_SESSION['status'] = "Popular Bike Not Added";
+            header('Location:popular.php');
+        }
+    }
+}
+
 
 if(isset($_POST['registerbtn']))
 {
