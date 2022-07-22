@@ -1,6 +1,151 @@
 <?php
 include('security.php');
 
+
+if(isset($_POST['save_allbikes'])){
+    $allbikebrand = $_POST['allbikes_brand'];
+    $allbikemodel = $_POST['allbikes_model'];
+    $allbikeimg = $_FILES["allbikes_img"]['name'];
+    $allbikeprice = $_POST['allbikes_price'];
+
+    $allbikes_validate_img_extension = $_FILES["allbikes_img"]['type']=="image/jpg" || 
+    $_FILES["allbikes_img"]['type']=="image/png" || 
+    $_FILES["allbikes_img"]['type']=="image/jpeg" ;
+
+    if($allbikes_validate_img_extension)
+    {
+
+    
+
+    if(file_exists("upload/" . $_FILES["allbikes_img"]["name"])){
+        $store = $_FILES["allbikes_img"]["name"];
+        $_SESSION['status']= "Image already exists '.$store.'";
+        header('Location:allbikes.php');
+    }
+    else{
+
+   
+    
+
+        $query = "INSERT INTO allbikes (`allbikebrand`,`allbikemodel`,`allbikeimg`,`allbikeprice`) VALUES ('$allbikebrand','$allbikemodel','$allbikeimg','$allbikeprice')";
+        $query_run = mysqli_query($connection,$query);
+
+        if($query_run)
+        {
+            move_uploaded_file($_FILES["allbikes_img"]["tmp_name"],"upload/".$_FILES["allbikes_img"]["name"]);
+            $_SESSION['status'] = " Bike Added";
+            header('Location:allbikes.php');
+        }
+        else{
+            $_SESSION['status'] = " Bike Not Added";
+            header('Location:allbikes.php');
+        }
+    }
+    }
+    else
+    {
+        $_SESSION['status'] = "Only PNG , JPG and JPEG Images are allowed";
+        header('Location:allbikes.php');
+    }
+}
+
+
+
+
+if(isset($_POST['allbikes_delete_btn'])){
+    $id = $_POST['allbikes_delete_id'];
+
+    $query = "DELETE FROM allbikes WHERE id='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['status'] = "Bike is DELETED";
+        header('Location: allbikes.php'); 
+    }
+    else
+    {
+        $_SESSION['status'] = "Bike is NOT DELETED";       
+        header('Location: allbikes.php'); 
+    }   
+
+}
+
+
+
+
+
+
+if(isset($_POST['allbike_update_btn']))
+{
+    $edit_allbike_id = $_POST['edit_allbike_id'];
+    $edit_allbike_brand = $_POST['edit_allbike_brand'];
+    $edit_allbike_model = $_POST['edit_allbike_model'];
+    $edit_allbike_img = $_FILES["allbike_img"]['name'];
+    $edit_allbike_price = $_POST['edit_allbike_price'];
+
+    $allbike_query = "SELECT * FROM allbikes WHERE id='$edit_allbike_id' ";
+    $allbike_query_run = mysqli_query($connection,$allbike_query);
+    foreach($allbike_query_run as $allbike_row)
+    {
+        if($edit_allbike_img == NULL){
+            //update with existing image
+            $image_data = $allbike_row['allbikeimg'];
+        }
+        else{
+            //Update with new imageand delete the old image
+            if($img_path = "upload/".$allbike_row['allbikeimg']){
+                unlink($img_path);
+                $image_data = $edit_allbike_img;
+            }
+            
+        }
+    }
+
+    $query = "UPDATE allbikes SET allbikebrand='$edit_allbike_brand',allbikemodel='$edit_allbike_model',allbikeimg='$image_data',allbikeprice='$edit_allbike_price' WHERE id='$edit_allbike_id'";
+    $query_run = mysqli_query($connection,$query);
+
+    if($query_run)
+        {
+            if($edit_allbike_img == NULL){
+                $_SESSION['status'] = " Bike Updated with existing image";
+                header('Location:allbikes.php');
+            }
+            else{
+                move_uploaded_file($_FILES["allbike_img"]["tmp_name"],"upload/".$_FILES["allbike_img"]["name"]);
+                $_SESSION['status'] = " Bike Updated";
+                header('Location:allbikes.php');
+            }
+            
+        }
+        else{
+            $_SESSION['status'] = "Popular Bike Details Not Updated";
+            header('Location:popular.php');
+        }
+}
+
+
+
+
+if(isset($_POST['popular_delete_btn'])){
+    $id = $_POST['popular_delete_id'];
+
+    $query = "DELETE FROM popular_bikes WHERE id='$id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        $_SESSION['status'] = "Bike is DELETED";
+        header('Location: popular.php'); 
+    }
+    else
+    {
+        $_SESSION['status'] = "Bike is NOT DELETED";       
+        header('Location: popular.php'); 
+    }   
+
+}
+
 if(isset($_POST['save_popularbike'])){
     $brand = $_POST['popular_brand'];
     $model = $_POST['popular_model'];
@@ -10,6 +155,15 @@ if(isset($_POST['save_popularbike'])){
     $range = $_POST['popular_range'];
     $price = $_POST['popular_price'];
     $link = $_POST['popular_link'];
+
+    $validate_img_extension = $_FILES["popular_img"]['type']=="image/jpg" || 
+    $_FILES["popular_img"]['type']=="image/png" || 
+    $_FILES["popular_img"]['type']=="image/jpeg" ;
+
+    if($validate_img_extension)
+    {
+
+    
 
     if(file_exists("upload/" . $_FILES["popular_img"]["name"])){
         $store = $_FILES["popular_img"]["name"];
@@ -32,7 +186,15 @@ if(isset($_POST['save_popularbike'])){
             header('Location:popular.php');
         }
     }
+    }
+    else
+    {
+        $_SESSION['status'] = "Only PNG , JPG and JPEG Images are allowed";
+        header('Location:popular.php');
+    }
 }
+
+
 
 if(isset($_POST['popular_update_btn']))
 {

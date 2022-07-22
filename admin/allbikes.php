@@ -5,8 +5,7 @@
     include('includes/navbar.php');
 ?>
 
-
-<div class="modal fade" id="popularBikes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="allbikes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -19,40 +18,24 @@
       <div class="modal-body">
             <div class="form-group">
                 <label> Brand Name </label>
-                <input type="name" name="popular_brand" class="form-control" placeholder="Enter Brand name" required>
+                <input type="name" name="allbikes_brand" class="form-control" placeholder="Enter Brand name" required>
             </div>
             <div class="form-group">
                 <label> Model Name </label>
-                <input type="name" name="popular_model" class="form-control" placeholder="Enter Model name" required>
+                <input type="name" name="allbikes_model" class="form-control" placeholder="Enter Model name" required>
             </div>
             <div class="form-group">
                 <label> Upload Bike Image </label>
-                <input type="file" name="popular_img" id="bikeimage" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label> Top Speed </label>
-                <input type="text" name="popular_topspeed" class="form-control" placeholder="Enter Top speed" required>
-            </div>
-            <div class="form-group">
-                <label> Charge Time </label>
-                <input type="text" name="popular_charge" class="form-control" placeholder="Enter Charge time" required>
-            </div>
-            <div class="form-group">
-                <label> Range </label>
-                <input type="text" name="popular_range" class="form-control" placeholder="Enter Bike range" required>
+                <input type="file" name="allbikes_img" id="allbikesimage" class="form-control" required>
             </div>
             <div class="form-group">
                 <label> Price </label>
-                <input type="text" name="popular_price" class="form-control" placeholder="Enter Bike price" required>
-            </div>
-            <div class="form-group">
-                <label> link </label>
-                <input type="text" name="popular_link" class="form-control" placeholder="Enter info link" required>
+                <input type="text" name="allbikes_price" class="form-control" placeholder="Enter Bike price" required>
             </div>
       </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="save_popularbike" class="btn btn-primary">Save</button>
+            <button type="submit" name="save_allbikes" class="btn btn-primary">Save</button>
         </div>
         </form>
     </div>
@@ -62,8 +45,8 @@
 <div class="container-fluid">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Popular Bikes
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#popularBikes">
+            <h6 class="m-0 font-weight-bold text-primary">Store Bikes
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#allbikes">
                     Add
                 </button>
             </h6>
@@ -83,7 +66,7 @@
         ?>
             <div class="table-responsive">
                 <?php
-                    $query = "SELECT * FROM popular_bikes";
+                    $query = "SELECT * FROM allbikes";
                     $query_run=mysqli_query($connection, $query);
 
                     if(mysqli_num_rows($query_run) > 0)
@@ -98,11 +81,7 @@
                             <th>Brand</th>
                             <th>Model</th>
                             <th>Image</th>
-                            <th>Top Speed</th>
-                            <th>Charge Time</th>
-                            <th>Range</th>
                             <th>Price</th>
-                            <th>link</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -114,24 +93,20 @@
                         ?>
                             <tr>
                                 <td><?php echo $row['id'] ?></td>
-                                <td><?php echo $row['brand'] ?></td>
-                                <td><?php echo $row['model'] ?></td>
-                                <td><?php echo '<img src="upload/'.$row['img'].'" width="100px;" height="100px;" alt="Bike Image">'?></td>
-                                <td><?php echo $row['topspeed'] ?></td>
-                                <td><?php echo $row['charge'] ?></td>
-                                <td><?php echo $row['bikerange'] ?></td>
-                                <td><?php echo $row['price'] ?></td>
-                                <td><?php echo $row['link'] ?></td>
+                                <td><?php echo $row['allbikebrand'] ?></td>
+                                <td><?php echo $row['allbikemodel'] ?></td>
+                                <td><?php echo '<img src="upload/'.$row['allbikeimg'].'" width="100px;" height="100px;" alt="Bike Image">'?></td>
+                                <td><?php echo $row['allbikeprice'] ?></td>
                                 <td> 
-                                    <form action="popular_edit.php" method="POST">
-                                            <input type="hidden" name="edit_id" value="<?php echo $row['id'] ?>">
-                                            <button type="submit" name="edit_data_btn" class="btn btn-success">Edit</button>
+                                    <form action="allbikes_edit.php" method="POST">
+                                            <input type="hidden" name="allbike_edit_id" value="<?php echo $row['id'] ?>">
+                                            <button type="submit" name="allbike_edit_data_btn" class="btn btn-success">Edit</button>
                                     </form>
                                 </td>
                                 <td> 
                                     <form action="code.php" method="POST">
-                                        <input type="hidden" name="popular_delete_id" value="<?php echo $row['id'] ?>">
-                                        <button type="submit" name="popular_delete_btn"  class="btn btn-danger">Delete</button>
+                                        <input type="hidden" name="allbikes_delete_id" value="<?php echo $row['id'] ?>">
+                                        <button type="submit" name="allbikes_delete_btn"  class="btn btn-danger">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -153,7 +128,6 @@
         </div>
     </div>
 </div>
-
 
 
 <?php 
