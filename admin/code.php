@@ -20,6 +20,7 @@ if(isset($_POST['save_allbikes'])){
     if(file_exists("upload/" . $_FILES["allbikes_img"]["name"])){
         $store = $_FILES["allbikes_img"]["name"];
         $_SESSION['status']= "Image already exists '.$store.'";
+        $_SESSION['status_code'] = "error";
         header('Location:allbikes.php');
     }
     else{
@@ -34,10 +35,12 @@ if(isset($_POST['save_allbikes'])){
         {
             move_uploaded_file($_FILES["allbikes_img"]["tmp_name"],"upload/".$_FILES["allbikes_img"]["name"]);
             $_SESSION['status'] = " Bike Added";
+            $_SESSION['status_code'] = "success";
             header('Location:allbikes.php');
         }
         else{
             $_SESSION['status'] = " Bike Not Added";
+            $_SESSION['status_code'] = "error";
             header('Location:allbikes.php');
         }
     }
@@ -45,6 +48,7 @@ if(isset($_POST['save_allbikes'])){
     else
     {
         $_SESSION['status'] = "Only PNG , JPG and JPEG Images are allowed";
+        $_SESSION['status_code'] = "warning";
         header('Location:allbikes.php');
     }
 }
@@ -61,11 +65,13 @@ if(isset($_POST['allbikes_delete_btn'])){
     if($query_run)
     {
         $_SESSION['status'] = "Bike is DELETED";
+        $_SESSION['status_code'] = "success";
         header('Location: allbikes.php'); 
     }
     else
     {
-        $_SESSION['status'] = "Bike is NOT DELETED";       
+        $_SESSION['status'] = "Bike is NOT DELETED";    
+        $_SESSION['status_code'] = "error";
         header('Location: allbikes.php'); 
     }   
 
@@ -109,17 +115,20 @@ if(isset($_POST['allbike_update_btn']))
         {
             if($edit_allbike_img == NULL){
                 $_SESSION['status'] = " Bike Updated with existing image";
+                $_SESSION['status_code'] = "success";
                 header('Location:allbikes.php');
             }
             else{
                 move_uploaded_file($_FILES["allbike_img"]["tmp_name"],"upload/".$_FILES["allbike_img"]["name"]);
                 $_SESSION['status'] = " Bike Updated";
+                $_SESSION['status_code'] = "success";
                 header('Location:allbikes.php');
             }
             
         }
         else{
             $_SESSION['status'] = "Popular Bike Details Not Updated";
+            $_SESSION['status_code'] = "error";
             header('Location:popular.php');
         }
 }
@@ -136,11 +145,13 @@ if(isset($_POST['popular_delete_btn'])){
     if($query_run)
     {
         $_SESSION['status'] = "Bike is DELETED";
+        $_SESSION['status_code'] = "success";
         header('Location: popular.php'); 
     }
     else
     {
-        $_SESSION['status'] = "Bike is NOT DELETED";       
+        $_SESSION['status'] = "Bike is NOT DELETED";
+        $_SESSION['status_code'] = "error";
         header('Location: popular.php'); 
     }   
 
@@ -168,6 +179,7 @@ if(isset($_POST['save_popularbike'])){
     if(file_exists("upload/" . $_FILES["popular_img"]["name"])){
         $store = $_FILES["popular_img"]["name"];
         $_SESSION['status']= "Image already exists '.$store.'";
+        $_SESSION['status_code'] = "error";
         header('Location:popular.php');
     }
     else{
@@ -179,10 +191,12 @@ if(isset($_POST['save_popularbike'])){
         {
             move_uploaded_file($_FILES["popular_img"]["tmp_name"],"upload/".$_FILES["popular_img"]["name"]);
             $_SESSION['status'] = "Popular Bike Added";
+            $_SESSION['status_code'] = "success";
             header('Location:popular.php');
         }
         else{
             $_SESSION['status'] = "Popular Bike Not Added";
+            $_SESSION['status_code'] = "error";
             header('Location:popular.php');
         }
     }
@@ -190,6 +204,7 @@ if(isset($_POST['save_popularbike'])){
     else
     {
         $_SESSION['status'] = "Only PNG , JPG and JPEG Images are allowed";
+        $_SESSION['status_code'] = "warning";
         header('Location:popular.php');
     }
 }
@@ -233,17 +248,20 @@ if(isset($_POST['popular_update_btn']))
         {
             if($edit_popular_img == NULL){
                 $_SESSION['status'] = "Popular Bike Updated with existing image";
+                $_SESSION['status_code'] = "success";
                 header('Location:popular.php');
             }
             else{
                 move_uploaded_file($_FILES["popular_img"]["tmp_name"],"upload/".$_FILES["popular_img"]["name"]);
                 $_SESSION['status'] = "Popular Bike Updated";
+                $_SESSION['status_code'] = "success";
                 header('Location:popular.php');
             }
             
         }
         else{
             $_SESSION['status'] = "Popular Bike Details Not Updated";
+            $_SESSION['status_code'] = "error";
             header('Location:popular.php');
         }
 }
@@ -267,7 +285,9 @@ if(isset($_POST['registerbtn']))
     }
     else
     {
-        if($password === $cpassword)
+        if(strlen($password) >= 6){
+
+            if($password === $cpassword)
         {
             $query = "INSERT INTO register (username,email,password) VALUES ('$username','$email','$password')";
             $query_run = mysqli_query($connection, $query);
@@ -292,6 +312,13 @@ if(isset($_POST['registerbtn']))
             $_SESSION['status_code'] = "warning";
             header('Location: register.php');  
         }
+        }
+        else{
+            $_SESSION['status'] = "Password length less than 6 characters";
+            $_SESSION['status_code'] = "warning";
+            header('Location: register.php'); 
+        }
+        
     }
 
 }
@@ -352,11 +379,14 @@ if(isset($_POST['login_btn']))
    if(mysqli_fetch_array($query_run))
    {
         $_SESSION['username'] = $email_login;
+        $_SESSION['status_code'] = "success";
+
         header('Location: index.php');
    } 
    else
    {
         $_SESSION['status'] = "Email / Password is Invalid";
+        $_SESSION['status_code'] = "error";
         header('Location: login.php');
    }
     

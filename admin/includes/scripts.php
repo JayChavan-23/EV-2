@@ -12,6 +12,27 @@
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <?php
+    if(isset($_SESSION['status']) && $_SESSION['status']!='')
+    {
+        ?>
+        <script>
+            swal({
+              title: "<?php echo $_SESSION['status'];  ?>",
+            //   text: "You clicked the button!",
+              icon: "<?php echo $_SESSION['status_code'];  ?>",
+              button: "Ok Done!",
+            });
+    </script>
+        <?php
+        unset($_SESSION['status']);
+    }
+
+  ?>
+    <!--  -->
+
+
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>

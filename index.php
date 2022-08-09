@@ -178,7 +178,6 @@
 
                     <?php
                         require 'admin/database/dbconfig.php';
-
                         $query = "SELECT * FROM popular_bikes";
                         $query_run = mysqli_query($connection,$query);
                         $check_bikes = mysqli_num_rows($query_run) > 0;
@@ -197,7 +196,6 @@
                         <div class="popular__data">
                             <div class="popular__data-group">
                                 <i class="ri-dashboard-2-line"></i> <?php echo $row['topspeed']; ?>
-
                             </div>
                             <div class="popular__data-group">
                                 <i class="ri-timer-line"></i> <?php echo $row['charge']; ?>
@@ -206,18 +204,13 @@
                                 <i class="ri-charging-pile-line"></i><?php echo $row['bikerange']; ?>
                             </div>
                         </div>
-
                         <h3 class="popular__price"><?php echo $row['price']; ?></h3>
                         <button class="button popular__button">
                             <a href="<?php echo $row['link']; ?>" target="_blank"><i
                                     class="ri-information-line"></i></a>
                         </button>
-
                     </article>
-
                     <?php
-
-                                
                             }
                         }
                         else
@@ -225,9 +218,6 @@
 
                         }
                         ?>
-
-
-
                 </div>
 
                 <div class="swiper-pagination"></div>
@@ -299,277 +289,70 @@
                         </button>
                     </li>
                     <li>
-                        <button class="featured__item" data-filter=".revolt">
+                        <button class="featured__item" data-filter=".Revolt">
                             <img src="assets/img/revoltlogo.png" alt="">
                         </button>
                     </li>
                     <li>
-                        <button class="featured__item" data-filter=".heroelectric">
+                        <button class="featured__item" data-filter=".HeroElectric">
                             <img src="assets/img/Hero-electriclogo.png" alt="">
                         </button>
                     </li>
                     <li>
-                        <button class="featured__item" data-filter=".ola">
+                        <button class="featured__item" data-filter=".OLA">
                             <img src="assets/img/olaelectriclogo.png" alt="">
                         </button>
                     </li>
                     <li>
-                        <button class="featured__item" data-filter=".ather">
+                        <button class="featured__item" data-filter=".Ather">
                             <img src="assets/img/ather-energy-squarelogo.png" alt="">
                         </button>
                     </li>
                     <li>
-                        <button class="featured__item" data-filter=".joye">
+                        <button class="featured__item" data-filter=".Joye-bike">
                             <img src="assets/img/joyelogo.png" alt="">
                         </button>
                     </li>
                     <li>
-                        <button class="featured__item" data-filter=".pureev">
+                        <button class="featured__item" data-filter=".PURE-EV">
                             <img src="assets/img/pureevlogo.jpg" alt="">
                         </button>
                     </li>
                 </ul>
                 <div class="featured__content grid">
-                    <article class="featured__card mix heroelectric">
+                <?php
+                        require 'admin/database/dbconfig.php';
+                        $query = "SELECT * FROM allbikes";
+                        $query_run = mysqli_query($connection,$query);
+                        $check_bikes = mysqli_num_rows($query_run) > 0;
+                        if($check_bikes)
+                        {
+                            while($row = mysqli_fetch_assoc($query_run))
+                            {
+                                ?>
+                    <article class="featured__card mix <?php echo $row['allbikebrand']; ?>">
                         <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Hero Electric</h1>
+                        <h1 class="featured__title"><?php echo $row['allbikebrand']; ?></h1>
 
-                        <h3 class="featured__subtitle">Atria LX </h3>
+                        <h3 class="featured__subtitle"><?php echo $row['allbikemodel']; ?> </h3>
 
-                        <img src="assets/img/heroelectric/Hero Electric Atria.png" alt="" class="featured__img">
+                        <img src="admin/upload/<?php echo $row['allbikeimg']; ?>" alt="" class="featured__img">
 
-                        <h3 class="featured__price">₹71690</h3>
+                        <h3 class="featured__price"><?php echo $row['allbikeprice']; ?></h3>
 
                         <button class="button featured__button">
                             <i class="ri-shopping-bag-2-line"></i>
                         </button>
                     </article>
-                    <article class="featured__card mix joye">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Joy e-bike</h1>
-
-                        <h3 class="featured__subtitle">Gen Nxt Nanu E-scooter</h3>
-
-                        <img src="assets/img/joye/joy e-bike gen nxt nanu e-scooter.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹77400</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix heroelectric">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Hero Electric</h1>
-
-                        <h3 class="featured__subtitle">Optima CX – Dual Battery</h3>
-
-                        <img src="assets/img/heroelectric/Hero Electric Optima CX.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹77490</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix heroelectric">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Hero Electric</h1>
-
-                        <h3 class="featured__subtitle">NYX HX (Dual Battery)</h3>
-
-                        <img src="assets/img/heroelectric/Hero Electric NYX HX.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹77540</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix joye">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Joy e-bike</h1>
-
-                        <h3 class="featured__subtitle">Glob</h3>
-
-                        <img src="assets/img/joye/Joy e-bike Glob.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹77600</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix joye">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Joy e-bike</h1>
-
-                        <h3 class="featured__subtitle">Wolf</h3>
-
-                        <img src="assets/img/joye/Joy e-bike Wolf.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹79600</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix heroelectric">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Hero Electric</h1>
-
-                        <h3 class="featured__subtitle">Photon Hx</h3>
-
-                        <img src="assets/img/heroelectric/Hero Electric Photon.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹80790</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix pureev">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">PURE EV</h1>
-
-                        <h3 class="featured__subtitle">ETRANCE NEO
-                        </h3>
-
-                        <img src="assets/img/pureev/PURE-EV-Etrance-Neo.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹87999</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix pureev">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">PURE EV</h1>
-
-                        <h3 class="featured__subtitle">EPluto 7G</h3>
-
-                        <img src="assets/img/pureev/EPluto-7G-.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹92999</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix revolt">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Revolt</h1>
-
-                        <h3 class="featured__subtitle">RV 300</h3>
-
-                        <img src="assets/img/revolt/revolt300.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹94999</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix ola">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">OLA</h1>
-
-                        <h3 class="featured__subtitle">S1</h3>
-
-                        <img src="assets/img/OLA/ola s1.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹104093</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix revolt">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Revolt</h1>
-
-                        <h3 class="featured__subtitle">RV 400</h3>
-
-                        <img src="assets/img/revolt/revolt400.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹124000</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix ola">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">OLA</h1>
-
-                        <h3 class="featured__subtitle">S1 Pro</h3>
-
-                        <img src="assets/img/OLA/ola s1 pro.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹139999</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix ather">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Ather</h1>
-
-                        <h3 class="featured__subtitle">450X</h3>
-
-                        <img src="assets/img/atherenergy/ather450X.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹143136</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix pureev">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">PURE EV</h1>
-
-                        <h3 class="featured__subtitle">ETRYST 350</h3>
-
-                        <img src="assets/img/pureev/Pure-EV-First-Electric-Bike-ETRYST-350.png" alt=""
-                            class="featured__img">
-
-                        <h3 class="featured__price">₹154999</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix joye">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Joy e-bike</h1>
-
-                        <h3 class="featured__subtitle">Skyline</h3>
-
-                        <img src="assets/img/joye/Joy e-bike Skyline.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹229000</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
-                    <article class="featured__card mix joye">
-                        <div class="shape shape__smaller"></div>
-                        <h1 class="featured__title">Joy e-bike</h1>
-
-                        <h3 class="featured__subtitle">Hurricane</h3>
-
-                        <img src="assets/img/joye/Joy_e-bike_Hurricane.png" alt="" class="featured__img">
-
-                        <h3 class="featured__price">₹233000</h3>
-
-                        <button class="button featured__button">
-                            <i class="ri-shopping-bag-2-line"></i>
-                        </button>
-                    </article>
+                    <?php
+                            }
+                        }
+                        else
+                        {
+
+                        }
+                        ?>
+                    
                 </div>
             </div>
         </section>
@@ -581,12 +364,12 @@
             <div class="appointment__bg">
                 <div class="appointment__container container grid">
                     <div class="appointment__data">
-                        <h2 class="appointment__title">Intrested? Click below to book an appointment</h2>
+                        <h2 class="appointment__title">Intrested? Send us an E-mail to book an appointment</h2>
                         <p class="appointment__description">Note:- Please follow Covid Guidelines and wear your mask
                             while visiting</p>
-                        <a href="#" class="button button--flex button--white">
-                            Book Appointment
-                            <i class="ri-arrow-right-line appointment__icon"></i>
+                        <a href="#contact" class="button button--flex button--white">
+                            Contact us
+                            <i class="ri-arrow-down-line appointment__icon"></i>
                         </a>
                     </div>
 
@@ -596,7 +379,7 @@
             </div>
         </section>
         <!--==================== testimonals ====================-->
-        <section class="testimonal section">
+        <section class="testimonal section" id="testimonals">
             <div class="testimonal__heading"><b>Our</b> Testimonals</div>
             <div class="testimonal__wrapper">
                 <div class="testimonal__container">
@@ -688,13 +471,13 @@
                 </h3>
                 <ul class="footer__links">
                     <li>
-                        <a href="#" class="footer__link">About Us</a>
+                        <a href="#about" class="footer__link">About Us</a>
                     </li>
                     <li>
-                        <a href="#" class="footer__link">Bikes</a>
+                        <a href="#featured" class="footer__link">Bikes</a>
                     </li>
                     <li>
-                        <a href="#" class="footer__link">Testimonals</a>
+                        <a href="#testimonals" class="footer__link">Testimonals</a>
                     </li>
                 </ul>
             </div>
@@ -707,10 +490,10 @@
                         <a href="#" class="footer__link">Locate Store</a>
                     </li>
                     <li>
-                        <a href="#" class="footer__link">Ask Question</a>
+                        <a href="#contact" class="footer__link">Ask Question</a>
                     </li>
                     <li>
-                        <a href="#" class="footer__link">Services</a>
+                        <a href="#services" class="footer__link">Services</a>
                     </li>
                 </ul>
             </div>
@@ -720,7 +503,7 @@
                 </h3>
                 <ul class="footer__links">
                     <li>
-                        <a href="#" class="footer__link">Click here</a>
+                        <a href="admin/index.php" class="footer__link">Click here</a>
                     </li>
 
                 </ul>
