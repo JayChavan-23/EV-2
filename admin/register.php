@@ -18,20 +18,20 @@ include('includes/navbar.php');
         <div class="modal-body">
             <div class="form-group">
                 <label> Username </label>
-                <input type="text" name="username" class="form-control" placeholder="Enter Username">
+                <input type="text" name="username" class="form-control" placeholder="Enter Username" pattern="[A-Za-z]{3,}" title="Must contain more than 3 characters" required>
             </div>
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" name="email" class="form-control checking_email" placeholder="Enter Email">
+                <input type="email" name="email" class="form-control checking_email" placeholder="Enter Email" required>
                 <small class="error_email" style="color: red;"></small>
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" name="password" class="form-control" placeholder="Enter Password" required>
             </div>
             <div class="form-group">
                 <label>Confirm Password</label>
-                <input type="password" name="confirmpassword" class="form-control" placeholder="Confirm Password">
+                <input type="password"  name="confirmpassword" class="form-control" placeholder="Confirm Password" required>
             </div>
 
 

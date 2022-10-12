@@ -4,24 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!--=============== FAVICON ===============-->
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
-
     <!--=============== REMIX ICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
     <!--=============== SWIPER CSS ===============-->
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
     <!--=============== CSS ===============-->
     <?php echo '<link rel="stylesheet" href="assets/css/styles.css">'; ?>
-
     <title>Electric Bikes</title>
 </head>
 
 <body>
-
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
         <nav class="nav container">
@@ -47,21 +41,19 @@
                         <a href="#contact" class="nav__link">ContactUs</a>
                     </li>
                     <li class="nav__item">
-                        <a href="admin/index.php" class="nav__link">Admin</a>
+                        <a href="admin/index.php" target="_blank" class="nav__link">Admin</a>
                     </li>
                 </ul>
                 <div class="nav__close" id="nav-close">
                     <i class="ri-close-line"></i>
                 </div>
             </div>
-
             <!-- Toggle button-->
             <div class="nav__toggle" id="nav-toggle">
                 <i class="ri-menu-line"></i>
             </div>
         </nav>
     </header>
-
     <!--==================== MAIN ====================-->
     <main class="main">
         <!--==================== HOME ====================-->
@@ -133,11 +125,8 @@
                     </div>
                 </div>
             </div>
-
             <img src="assets/img/map.svg" alt="" class="features__map">
         </section>
-
-
         <!--==================== ABOUT ====================-->
         <section class="about section" id="about">
             <div class="about__container container grid">
@@ -150,7 +139,6 @@
                         </p>
                     </div>
                 </div>
-
                 <div class="about__data">
                     <h2 class="section__title about__title">
                         EV-2 <br> <i class="ri-flashlight-fill"></i> The Electric Bike shop <i
@@ -158,15 +146,13 @@
                     </h2>
 
                     <p class="about__description">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        Magnam iusto voluptas tenetur unde fuga aut sint adipisci
-                        consequuntur amet, quod sunt, perferendis
+                        We offer the best and newest electric bikes of the most recognized brands in India.
+                        A leading store for your next new Bike !
                     </p>
                     <a href="#" class="button">Contact us?</a>
                 </div>
             </div>
         </section>
-
         <!--==================== POPULAR ====================-->
         <section class="popular section" id="popular">
             <h2 class="section__title">
@@ -174,8 +160,6 @@
             </h2>
             <div class="popular__container container swiper">
                 <div class="swiper-wrapper">
-
-
                     <?php
                         require 'admin/database/dbconfig.php';
                         $query = "SELECT * FROM popular_bikes";
@@ -219,46 +203,48 @@
                         }
                         ?>
                 </div>
-
                 <div class="swiper-pagination"></div>
             </div>
         </section>
         <!--==================== services ====================-->
         <section class="services section" id="services">
-                <h1 class="section__title">Our Services</h1>
-                <div class="box-container">
-                    <div class="box">
-                        <i class="ri-motorbike-fill"></i>
-                        <h3>Bike Selling</h3>
-                        <p class="services__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad iure haru</p>
-                    </div>
-                    <div class="box">
-                        <i class="ri-tools-line"></i>
-                        <h3>Bike Repair</h3>
-                        <p class="services__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad iure haru</p>
-                    </div>
-                    <div class="box">
-                        <i class="ri-shield-flash-line"></i>
-                        <h3>Bike Insurance</h3>
-                        <p class="services__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad iure haru</p>
-                    </div>
-                    <div class="box">
-                        <i class="ri-battery-charge-line"></i>
-                        <h3>Battery replacement</h3>
-                        <p class="services__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad iure haru</p>
-                    </div>
-                    <div class="box">
-                        <i class="ri-home-8-line"></i>
-                        <h3>Quick Delivery</h3>
-                        <p class="services__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad iure haru</p>
-                    </div>
-                    <div class="box">
-                        <i class="ri-customer-service-2-line"></i>
-                        <h3>24/7 Support</h3>
-                        <p class="services__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad iure haru</p>
-                    </div>
+            <h1 class="section__title">Our Services</h1>
+            <div class="box-container">
+                <div class="box">
+                    <i class="ri-motorbike-fill"></i>
+                    <h3>Bike Selling</h3>
+                    <p class="services__description">Selling of bikes at the best and affordable price for the customers
+                    </p>
                 </div>
-            </section>
+                <div class="box">
+                    <i class="ri-tools-line"></i>
+                    <h3>Bike Repair</h3>
+                    <p class="services__description">Full maintainance and repairing of bikes with lots of offers</p>
+                </div>
+                <div class="box">
+                    <i class="ri-shield-flash-line"></i>
+                    <h3>Bike Insurance</h3>
+                    <p class="services__description">Great deals on Insurance of your new bike a the lowest cost
+                        possible </p>
+                </div>
+                <div class="box">
+                    <i class="ri-battery-charge-line"></i>
+                    <h3>Battery replacement</h3>
+                    <p class="services__description">LNew batteries are available for replacement with your old one's
+                    </p>
+                </div>
+                <div class="box">
+                    <i class="ri-home-8-line"></i>
+                    <h3>Quick Delivery</h3>
+                    <p class="services__description">Fast delivery of your new electric bike at our showroom</p>
+                </div>
+                <div class="box">
+                    <i class="ri-customer-service-2-line"></i>
+                    <h3>24/7 Support</h3>
+                    <p class="services__description">24/7 call and chat support all the time for your convinience</p>
+                </div>
+            </div>
+        </section>
         <!--==================== Charger ====================-->
         <section class="charger section" id="charger">
             <div class="charger__container container grid">
@@ -271,10 +257,9 @@
                     <p class="charger__description">
                         Know more about the Electric vehicles charges its uses etc by clicking on the link below
                     </p>
-                    <a href="charger.html" target="_blank" class="button button__charger">Know More..</a>
+                    <a href="extras/charger.html" target="_blank" class="button button__charger">Know More..</a>
                 </div>
             </div>
-
         </section>
         <!--==================== FEATURED ====================-->
         <section class="featured section" id="featured">
@@ -320,7 +305,7 @@
                     </li>
                 </ul>
                 <div class="featured__content grid">
-                <?php
+                    <?php
                         require 'admin/database/dbconfig.php';
                         $query = "SELECT * FROM allbikes";
                         $query_run = mysqli_query($connection,$query);
@@ -352,13 +337,10 @@
 
                         }
                         ?>
-                    
+
                 </div>
             </div>
         </section>
-
-
-
         <!--==================== Appointment ====================-->
         <section class="appointment section">
             <div class="appointment__bg">
@@ -372,7 +354,6 @@
                             <i class="ri-arrow-down-line appointment__icon"></i>
                         </a>
                     </div>
-
                     <img src="assets/img/appalt.png" alt="" class="appointment__img">
 
                 </div>
@@ -389,13 +370,13 @@
                         </div>
                         <h2>Shawn Miller</h2>
                     </div>
-                    <p> <span> <i class="ri-double-quotes-l quote__left"></i></span> Lorem ipsum, dolor sit amet
-                        consectetur adipisicing elit. Unde,
-                        nulla amet excepturi soluta quasi libero quam sed ipsum aliquam hic,
-                        accusantium minus quidem eum voluptatum? Debitis, consequuntur fugit
-                        laboriosam ex accusamus inventore, consequatur fuga praesentium deleniti
-                        odio minima commodi illo? asfcg asdbw shcdss <span><i
-                                class="ri-double-quotes-r quote__right"></i></span> </p>
+                    <p> <span> <i class="ri-double-quotes-l quote__left"></i></span> The best strore for my new electric
+                        bike
+                        they offer very quick and quality service
+                        with lot's of services I really recommend
+                        purchasing your next bike from this store! Great price and overall experience and their website
+                        helped a lot for the information. <span><i class="ri-double-quotes-r quote__right"></i></span>
+                    </p>
                 </div>
                 <div class="testimonal__container">
                     <div class="testimonal__profile">
@@ -404,13 +385,13 @@
                         </div>
                         <h2>Angela Hersey</h2>
                     </div>
-                    <p> <span> <i class="ri-double-quotes-l quote__left"></i></span> Lorem ipsum, dolor sit amet
-                        consectetur adipisicing elit. Unde,
-                        nulla amet excepturi soluta quasi libero quam sed ipsum aliquam hic,
-                        accusantium minus quidem eum voluptatum? Debitis, consequuntur fugit
-                        laboriosam ex accusamus inventore, consequatur fuga praesentium deleniti
-                        odio minima commodi illo? asfcg asdbw shcdss <span><i
-                                class="ri-double-quotes-r quote__right"></i></span> </p>
+                    <p> <span> <i class="ri-double-quotes-l quote__left"></i></span>The best strore for my new electric
+                        bike
+                        they offer very quick and quality service
+                        with lot's of services I really recommend
+                        purchasing your next bike from this store! Great price and overall experience and their website
+                        helped a lot for the information.<span><i class="ri-double-quotes-r quote__right"></i></span>
+                    </p>
                 </div>
                 <div class="testimonal__container">
                     <div class="testimonal__profile">
@@ -419,13 +400,13 @@
                         </div>
                         <h2>Aiken Paul</h2>
                     </div>
-                    <p> <span> <i class="ri-double-quotes-l quote__left"></i></span> Lorem ipsum, dolor sit amet
-                        consectetur adipisicing elit. Unde,
-                        nulla amet excepturi soluta quasi libero quam sed ipsum aliquam hic,
-                        accusantium minus quidem eum voluptatum? Debitis, consequuntur fugit
-                        laboriosam ex accusamus inventore, consequatur fuga praesentium deleniti
-                        odio minima commodi illo? asfcg asdbw shcdss <span><i
-                                class="ri-double-quotes-r quote__right"></i></span> </p>
+                    <p> <span> <i class="ri-double-quotes-l quote__left"></i></span>The best strore for my new electric
+                        bike
+                        they offer very quick and quality service
+                        with lot's of services I really recommend
+                        purchasing your next bike from this store! Great price and overall experience and their website
+                        helped a lot for the information.<span><i class="ri-double-quotes-r quote__right"></i></span>
+                    </p>
                 </div>
             </div>
         </section>
@@ -437,18 +418,17 @@
                     <iframe class="map"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.452271096561!2d72.95613891536772!3d19.175438653821196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b8e5321ecbfb%3A0xf7d295a999c47b89!2sMulund%20College%20of%20Commerce!5e0!3m2!1sen!2sin!4v1656475520062!5m2!1sen!2sin"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    <form action="">
+                    <form action="https://formsubmit.co/e5a41513a947aec5d5bf444f228f241e " method="POST">
                         <h3>Fill The Form</h3>
-                        <input type="text" placeholder="your name" class="box">
-                        <input type="email" placeholder="your email" class="box">
-                        <textarea placeholder="your message" class="box" cols="30" rows="10"></textarea>
+                        <input name='name' type="text" placeholder="your name" class="box" pattern="[A-Za-z]{3}" required>
+                        <input name='email' type="email" placeholder="your email" class="box" required>
+                        <textarea name='message' placeholder="your message" class="box" cols="30" rows="10" required></textarea>
                         <input type="submit" value="send message" class="button ">
                     </form>
                 </div>
             </div>
         </section>
     </main>
-
     <!--==================== FOOTER ====================-->
     <footer class="footer section">
         <div class="shape shape__big"></div>
@@ -503,29 +483,23 @@
                 </h3>
                 <ul class="footer__links">
                     <li>
-                        <a href="admin/index.php" class="footer__link">Click here</a>
+                        <a href="admin/index.php" target="_blank" class="footer__link">Click here</a>
                     </li>
 
                 </ul>
             </div>
         </div>
     </footer>
-
-
     <!--========== SCROLL UP ==========-->
     <a href="#" class="scrollup" id="scroll-up">
         <i class="ri-arrow-up-line"></i>
     </a>
-
     <!--=============== SCROLL REVEAL ===============-->
     <script src="/assets/js/scrollreveal.min.js"></script>
-
     <!--=============== SWIPER JS ===============-->
     <script src="assets/js/swiper-bundle.min.js"></script>
-
     <!--=============== MIXITUP JS ===============-->
     <script src="assets/js/mixitup.min.js"></script>
-
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
 </body>

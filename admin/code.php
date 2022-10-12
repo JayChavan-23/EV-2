@@ -1,7 +1,5 @@
 <?php
 include('security.php');
-
-
 if(isset($_POST['save_allbikes'])){
     $allbikebrand = $_POST['allbikes_brand'];
     $allbikemodel = $_POST['allbikes_model'];
@@ -14,9 +12,6 @@ if(isset($_POST['save_allbikes'])){
 
     if($allbikes_validate_img_extension)
     {
-
-    
-
     if(file_exists("upload/" . $_FILES["allbikes_img"]["name"])){
         $store = $_FILES["allbikes_img"]["name"];
         $_SESSION['status']= "Image already exists '.$store.'";
@@ -24,10 +19,6 @@ if(isset($_POST['save_allbikes'])){
         header('Location:allbikes.php');
     }
     else{
-
-   
-    
-
         $query = "INSERT INTO allbikes (`allbikebrand`,`allbikemodel`,`allbikeimg`,`allbikeprice`) VALUES ('$allbikebrand','$allbikemodel','$allbikeimg','$allbikeprice')";
         $query_run = mysqli_query($connection,$query);
 
@@ -52,10 +43,6 @@ if(isset($_POST['save_allbikes'])){
         header('Location:allbikes.php');
     }
 }
-
-
-
-
 if(isset($_POST['allbikes_delete_btn'])){
     $id = $_POST['allbikes_delete_id'];
 
@@ -74,14 +61,7 @@ if(isset($_POST['allbikes_delete_btn'])){
         $_SESSION['status_code'] = "error";
         header('Location: allbikes.php'); 
     }   
-
 }
-
-
-
-
-
-
 if(isset($_POST['allbike_update_btn']))
 {
     $edit_allbike_id = $_POST['edit_allbike_id'];
@@ -103,14 +83,11 @@ if(isset($_POST['allbike_update_btn']))
             if($img_path = "upload/".$allbike_row['allbikeimg']){
                 unlink($img_path);
                 $image_data = $edit_allbike_img;
-            }
-            
+            }    
         }
     }
-
     $query = "UPDATE allbikes SET allbikebrand='$edit_allbike_brand',allbikemodel='$edit_allbike_model',allbikeimg='$image_data',allbikeprice='$edit_allbike_price' WHERE id='$edit_allbike_id'";
     $query_run = mysqli_query($connection,$query);
-
     if($query_run)
         {
             if($edit_allbike_img == NULL){
@@ -123,8 +100,7 @@ if(isset($_POST['allbike_update_btn']))
                 $_SESSION['status'] = " Bike Updated";
                 $_SESSION['status_code'] = "success";
                 header('Location:allbikes.php');
-            }
-            
+            }   
         }
         else{
             $_SESSION['status'] = "Popular Bike Details Not Updated";
@@ -132,10 +108,6 @@ if(isset($_POST['allbike_update_btn']))
             header('Location:popular.php');
         }
 }
-
-
-
-
 if(isset($_POST['popular_delete_btn'])){
     $id = $_POST['popular_delete_id'];
 
@@ -156,7 +128,6 @@ if(isset($_POST['popular_delete_btn'])){
     }   
 
 }
-
 if(isset($_POST['save_popularbike'])){
     $brand = $_POST['popular_brand'];
     $model = $_POST['popular_model'];
@@ -166,16 +137,11 @@ if(isset($_POST['save_popularbike'])){
     $range = $_POST['popular_range'];
     $price = $_POST['popular_price'];
     $link = $_POST['popular_link'];
-
     $validate_img_extension = $_FILES["popular_img"]['type']=="image/jpg" || 
     $_FILES["popular_img"]['type']=="image/png" || 
     $_FILES["popular_img"]['type']=="image/jpeg" ;
-
     if($validate_img_extension)
     {
-
-    
-
     if(file_exists("upload/" . $_FILES["popular_img"]["name"])){
         $store = $_FILES["popular_img"]["name"];
         $_SESSION['status']= "Image already exists '.$store.'";
@@ -183,7 +149,6 @@ if(isset($_POST['save_popularbike'])){
         header('Location:popular.php');
     }
     else{
-
         $query = "INSERT INTO popular_bikes (`brand`,`model`,`img`,`topspeed`,`charge`,`bikerange`,`price`,`link`) VALUES ('$brand','$model','$img','$topspeed','$charge','$range','$price','$link')";
         $query_run = mysqli_query($connection,$query);
 
@@ -208,9 +173,6 @@ if(isset($_POST['save_popularbike'])){
         header('Location:popular.php');
     }
 }
-
-
-
 if(isset($_POST['popular_update_btn']))
 {
     $edit_id = $_POST['edit_id'];
@@ -222,7 +184,6 @@ if(isset($_POST['popular_update_btn']))
     $edit_popular_range = $_POST['edit_popular_range'];
     $edit_popular_price = $_POST['edit_popular_price'];
     $edit_popular_link = $_POST['edit_popular_link'];
-
     $popular_query = "SELECT * FROM popular_bikes WHERE id='$edit_id' ";
     $popular_query_run = mysqli_query($connection,$popular_query);
     foreach($popular_query_run as $popular_row)
@@ -240,10 +201,8 @@ if(isset($_POST['popular_update_btn']))
             
         }
     }
-
     $query = "UPDATE popular_bikes SET brand='$edit_popular_brand',model='$edit_popular_model',img='$image_data',topspeed='$edit_popular_topspeed',charge='$edit_popular_charge',bikerange='$edit_popular_range',price='$edit_popular_price',link='$edit_popular_link' WHERE id='$edit_id'";
     $query_run = mysqli_query($connection,$query);
-
     if($query_run)
         {
             if($edit_popular_img == NULL){
@@ -265,9 +224,6 @@ if(isset($_POST['popular_update_btn']))
             header('Location:popular.php');
         }
 }
-
-
-
 if(isset($_POST['registerbtn']))
 {
     $username = $_POST['username'];
@@ -322,7 +278,6 @@ if(isset($_POST['registerbtn']))
     }
 
 }
-
 if(isset($_POST['updatebtn']))
 {
     $id = $_POST['edit_id'];
@@ -367,7 +322,6 @@ if(isset($_POST['delete_btn']))
         header('Location: register.php'); 
     }    
 }
-
 if(isset($_POST['login_btn']))
 {
     $email_login = $_POST['email']; 
@@ -391,6 +345,4 @@ if(isset($_POST['login_btn']))
    }
     
 }
-
-
 ?>

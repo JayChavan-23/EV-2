@@ -21,36 +21,40 @@
                 foreach($query_run as $row)
                 {
         ?>
-            <form action="code.php" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="edit_allbike_id" value="<?php echo $row['id'] ?>">
+        <form action="code.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="edit_allbike_id" value="<?php echo $row['id'] ?>">
 
-                 <div class="form-group">
-                     <label> Brand Name </label>
-                     <input type="name" name="edit_allbike_brand" value="<?php echo $row['allbikebrand'] ?>" class="form-control">
-                 </div>
-                 <div class="form-group">
-                     <label> Model Name </label>
-                     <input type="name" name="edit_allbike_model" value="<?php echo $row['allbikemodel'] ?>" class="form-control">
-                 </div>
-                 <div class="form-group">
-                     <label> Upload Bike Image </label>
-                     <input type="file" name="allbike_img" id="allbike_img" values="<?php echo $row['allbikeimg'] ?>" class="form-control">
-                 </div>
-                 
-                 <div class="form-group">
-                     <label> Price </label>
-                     <input type="text" name="edit_allbike_price" value="<?php echo $row['allbikeprice'] ?>" class="form-control">
-                 </div>
+            <div class="form-group">
+                <label> Brand Name </label>
+                <input type="name" name="edit_allbike_brand" value="<?php echo $row['allbikebrand'] ?>"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <label> Model Name </label>
+                <input type="name" name="edit_allbike_model" value="<?php echo $row['allbikemodel'] ?>"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <label> Upload Bike Image </label>
+                <input type="file" name="allbike_img" id="allbike_img" values="<?php echo $row['allbikeimg'] ?>"
+                    class="form-control">
+            </div>
 
-                 <a href="allbikes.php" class="btn btn-danger">Cancel</a>
-                 <button type="submit" name="allbike_update_btn" class="btn btn-primary">Update</button>
+            <div class="form-group">
+                <label> Price </label>
+                <input type="text" name="edit_allbike_price" value="<?php echo $row['allbikeprice'] ?>"
+                    class="form-control">
+            </div>
+
+            <a href="allbikes.php" class="btn btn-danger">Cancel</a>
+            <button type="submit" name="allbike_update_btn" class="btn btn-primary">Update</button>
         </form>
         <?php
 
                 }
             }
         ?>
-        
+
     </div>
 </div>
 
